@@ -1,5 +1,3 @@
-
-
 class Player:
     def __init__(self, name, token):
         self.name = name
@@ -56,3 +54,4 @@ class Game:
             pass
 
 g1 = Game()
+g1.is_full()
