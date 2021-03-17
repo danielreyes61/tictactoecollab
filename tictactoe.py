@@ -5,7 +5,6 @@ class Player:
         self.name = name
         self.token = token
 
-
 class Game:
     def __init__(self):
         board = [["X","O","X"],["O","O","X"],["X","X","X"]]
@@ -57,4 +56,3 @@ class Game:
             pass
 
 g1 = Game()
-g1.move()
