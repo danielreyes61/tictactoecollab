@@ -7,19 +7,16 @@ class Player:
 class Game:
     # Working.
     def __init__(self):
-        self.board = [["X",'X',"X"],["O","O","X"],["X","X","X"]]
+        self.board = [["O",'X',"X"],["O","O","X"],["X","X","X"]]
         self.wholeBoard = []
         self.fullBoard = False
-        self.x = -1
-        self.y = -1
         self.player1 = None
         self.player2 = None
         self.win_condition = None
         self.is_full_condition = None
 
     # Nope
-    def move(self):
-        pass
+
     
     
     # index out of range
@@ -50,19 +47,26 @@ class Game:
         else:
             self.is_full_condition = True
 
-    # Not tested
+    # Working.
     def is_game_over(self):
         if self.is_full_condition == True:
             print("No more spaces")
-            Game.calc_winner(self)
+            #Game.calc_winner(self)
 
         elif self.win_condition == True:
             print("Winner")
 
     # Working.   
-    #def __repr__(self):
-     #   print(f"{self.board[0]}\n{self.board[1]}\n{self.board[2]}")
-        
+    def __repr__(self):
+        print(f"{self.board[0]}\n{self.board[1]}\n{self.board[2]}")
+   
+    
+    def move(self, x, y, player):
+        self.x = x
+        self.y = y
+        self.player = player.token
+        self.board[x][y][] = self.player
+        print(self.x, self.y, player.token)       
     
 
 p1 = Player("Dan", "X")
@@ -70,10 +74,11 @@ p2 = Player("Ted", "O")
 g1 = Game()
 g1.player1 = p1
 g1.player2 = p2
+#print(p1.name + p1.token)
+#g1.is_full()
+#print(g1.is_full_condition)
+#g1.is_game_over()
 
-print(p1.name + p1.token)
-g1.is_full()
-print(g1.is_full_condition)
-
-
-g1.is_game_over()
+g1.__repr__()
+g1.move(0,0,p1)
+g1.__repr__()
