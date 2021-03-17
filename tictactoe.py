@@ -52,9 +52,9 @@ class Game:
             outcome = f''
 
             
-def __repr__(self,board):
-    print(f"{board[0]}\n{board[1]}\n{board[2]}")
-    pass
+    def __repr__(self):
+        print(f"{self.board[0]}\n{self.board[1]}\n{self.board[2]}")
+    
 
 p1 = Player("Dan", "X")
 p2 = Player("Ted", "O")
@@ -65,4 +65,5 @@ g1.player2 = p2
 print(p1.name + p1.token)
 g1.is_full()
 print(g1.is_full_condition)
+g1.__repr__()
 
