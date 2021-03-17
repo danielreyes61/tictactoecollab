@@ -11,12 +11,23 @@ class Game:
 
 
     def __init__(self):
-        board = [["X","O","X"],["O","O","X"],["X","X","X"]]
-        self.board = board
+        self.board = [["X","O","X"],["O","O","X"],["X","X","X"]]
+        self.fullBoard = False
+
+    def __repr__(self):
+        pass
 
     def move(self,x,y, player):
         pass
 
+
+    
+    def is_full(self):
+        for space in self.board:
+            print(space)
+
+    def is_game_over(self):
+        pass
 
     def calc_winner(self):
         for space in range(3):
@@ -35,19 +46,6 @@ class Game:
             elif self.board[2] == 'X' and self.board[4] == 'X' and self.board[6] == 'X':
                 return 
 
-    def is_full(self):
-        for spot in self.board:
-            print(spot)
-
-    def is_game_over(self):
-        
-
-
-
-
-
-    def __repr__(self):
-        pass
 
 g1 = Game()
 print(g1.board)
