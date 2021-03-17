@@ -8,8 +8,9 @@ class Player:
 
 class Game:
     def __init__(self):
-        board = [["X","O","X"],["O","O","X"],["X","X","X"]] 
+        board = [["X","O","X"],["O","O","X"],["X","X","X"]]
         self.board = board
+        self.fullBoard = False
         
         def move(x,y, player):
             pass
@@ -36,7 +37,6 @@ class Game:
                 print(spot)
 
         def is_game_over(self):
-
             for space in range(3):
                 # Loops through columns to check for vertical win.
                 if self.board[space] == 'X' and self.board[space+3] == 'X' and self.board[space+6] == 'X':
