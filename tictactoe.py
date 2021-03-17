@@ -1,10 +1,19 @@
 
 
 class Player:
-    pass
+    def __init__(self, name, token):
+        self.name = name
+        self.token = token
+
 
 
 class Game:
+
+    board = [[None,None,None],[None,None,None],[None,None,None]]
+
+    def move(x,y, player):
+        pass
+
 
     def calc_winner():
         pass 
@@ -19,4 +28,11 @@ class Game:
 
     def __repr__(self):
         pass
+
+g1 = Game()
+print(g1.board)
+
+p1 = Player("Dan", "X")
+print(p1.name + p1.token)
+
 
