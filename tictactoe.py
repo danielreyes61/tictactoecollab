@@ -6,7 +6,8 @@ class Player:
 
 class Game:
     def __init__(self):
-        self.board = [["X",None,"X"],["O","O","X"],["X","X","X"]]
+        self.board = [["X",'X',"X"],["O","O","X"],["X","X","X"]]
+        self.wholeBoard = []
         self.fullBoard = False
         self.x = -1
         self.y = -1
@@ -36,14 +37,11 @@ class Game:
                 self.win_condition == True
 
     def is_full(self):
-        for spot in self.board:
-            if spot != None:
-                self.is_full_condition = True
-            else:
-                self.is_full_condition = False
-                #return self.fullBoard == True
-            #else:
-                #continue
+        self.wholeBoard = self.board[0] + self.board[1] + self.board[2]
+        if any(x is None for x in self.wholeBoard):
+            self.is_full_condition = False
+        else:
+            self.is_full_condition = True
 
     def is_game_over(self, calc_winner, is_full):
         if self.fullBoard == True:
