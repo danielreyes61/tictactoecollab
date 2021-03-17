@@ -40,7 +40,7 @@ class Game:
 
 
     def is_game_over(self):
-        if fullBoard == True:
+        if self.fullBoard == True:
             outcome = 'No more spaces. GG.'
         elif win_condition == True:
             outcome = f''
@@ -50,8 +50,9 @@ def __repr__(self):
     pass
 
 g1 = Game()
-g1.is_full(board)
+#g1.is_full(board)
 
 p1 = Player("Dan", "X")
 print(p1.name + p1.token)
 
+print(g1.is_game_over())
