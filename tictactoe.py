@@ -6,32 +6,13 @@ class Player:
 class Game:
     # Working.
     def __init__(self):
-        self.board = [["O",'O',"O"],["O","O",None],["O","O","O"]]
+        self.board = [["X",'O',"O"],["X","O",None],["X","O","O"]]
         self.wholeBoard = []
         self.fullBoard = False
         self.player1 = None
         self.player2 = None
         self.win_condition = None
         self.is_full_condition = None
-
-    # index out of range
-    def calc_winner(self):
-        for space in range(3):
-            # Loops through columns to check for vertical win.
-            if self.board[space] == 'X' and self.board[space+3] == 'X' and self.board[space+6] == 'X':
-                self.win_condition == True
-
-            # Loops though rows to check for horizontal win
-            elif self.board[(space*3)] == 'X' and self.board[(space*3)+1] == 'X' and self.board[(space*3)+2] == 'X':
-                self.win_condition == True
-
-            # Loops through and checks for either possible diagonal win
-            elif self.board[0] == 'X' and self.board[4] == 'X' and self.board[8] == 'X':
-                self.win_condition == True
-
-            elif self.board[2] == 'X' and self.board[4] == 'X' and self.board[6] == 'X':
-                self.win_condition == True
-            # Handle no winner condition and 'O' winner condition
 
 
     # Working.
@@ -62,7 +43,34 @@ class Game:
         self.player = player.token
         if self.board[y][x] == None:
             self.board[y][x] = player.token    
-        print(self.x, self.y, player.token)       
+        print(self.x, self.y, player.token)
+
+    # index out of range
+    def calc_winner(self):
+        for space in range(3):
+            # print(self.board[0][space]) Horizontal
+            # print(self.board[space][0]) vertical
+            
+            # Loops through columns to check for vertical win.
+            # if any(x is None for x in self.wholeBoard):
+            if any(space is 'O' for space in self.board[space][0]):
+                pass 
+            else:
+                print('X won the game!')
+            # if self.board[space] == 'X' and self.board[space+3] == 'X' and self.board[space+6] == 'X':
+            #     self.win_condition == True
+
+            # # Loops though rows to check for horizontal win
+            # elif self.board[(space*3)] == 'X' and self.board[(space*3)+1] == 'X' and self.board[(space*3)+2] == 'X':
+            #     self.win_condition == True
+
+            # # Loops through and checks for either possible diagonal win
+            # elif self.board[0] == 'X' and self.board[4] == 'X' and self.board[8] == 'X':
+            #     self.win_condition == True
+
+            # elif self.board[2] == 'X' and self.board[4] == 'X' and self.board[6] == 'X':
+            #     self.win_condition == True
+            # Handle no winner condition and 'O' winner condition 
     
 
 p1 = Player("Dan", "X")
@@ -75,6 +83,7 @@ g1.player2 = p2
 #g1.is_game_over()
 #print(p1.name + p1.token)
 
-g1.__repr__()
-g1.move(2,1,p1)
-g1.__repr__()
+# g1.__repr__()
+# g1.move(2,1,p1)
+# g1.__repr__()
+g1.calc_winner()
