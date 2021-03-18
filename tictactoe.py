@@ -6,7 +6,7 @@ class Player:
 class Game:
     # Working
     def __init__(self):
-        self.board = [[None,None,None],[None,None,None],[None,None,None]]
+        self.board = [[" "," "," "],[" "," "," "],[" "," "," "]]
         self.wholeBoard = []
         self.fullBoard = False
         self.player1 = None
@@ -33,15 +33,24 @@ class Game:
             print("Winner")
 
     # Working
+
     def __repr__(self):
-        print(f"{self.board[0]}\n{self.board[1]}\n{self.board[2]}")
+        print(str(self.board[0][0]) + " | " + str(self.board[0][1]) + " | " + str(self.board [0][2]))
+        print(str(self.board[1][0]) + " | " + str(self.board[1][1]) + " | " + str(self.board [1][2]))
+        print(str(self.board[2][0]) + " | " + str(self.board[2][1]) + " | " + str(self.board [2][2]))
+
+
+       # print(f"{self.board[0]}\n{self.board[1]}\n{self.board[2]}")
+
+    #def __repr__(self):
+       # print(f"{self.board[0]}\n{self.board[1]}\n{self.board[2]}")
    
     # Working
     def move(self, x, y, player):
         self.x = x
         self.y = y
         self.player = player.token
-        if self.board[y][x] == None:
+        if self.board[y][x] == " ":
             self.board[y][x] = player.token    
         
 
@@ -50,44 +59,44 @@ class Game:
     def calc_winner(self):
 
             #Horizontal wins (columns)
-        if self.board[0][0] != None and self.board[0][0] == self.board[1][0] == self.board[2][0]:
+        if self.board[0][0] != " " and self.board[0][0] == self.board[1][0] == self.board[2][0]:
             print('column win ' + self.board[0][0])
             self.win_condition = self.board[0][0]
             self.__repr__()
 
-        elif self.board[0][1] != None and self.board[0][1] == self.board[1][1] == self.board[2][1]:
+        elif self.board[0][1] != " " and self.board[0][1] == self.board[1][1] == self.board[2][1]:
             print('column win ' + self.board[0][1])
             self.win_condition = self.board[0][1]
             self.__repr__()
 
-        elif self.board[0][2] != None and self.board[0][2] == self.board[1][2] == self.board[2][2]:
+        elif self.board[0][2] != " " and self.board[0][2] == self.board[1][2] == self.board[2][2]:
             print('column win ' + self.board[0][2])
             self.win_condition = self.board[0][2]
             self.__repr__()
 
             #Vertical wins (rows)
-        elif self.board[0][2] != None and self.board[0][0] == self.board[0][1] == self.board[0][2]:
+        elif self.board[0][2] != " " and self.board[0][0] == self.board[0][1] == self.board[0][2]:
             print('row win ' + self.board[0][0])
             self.win_condition = self.board[0][0]
             self.__repr__()
 
-        elif self.board[1][2] != None and self.board[1][0] == self.board[1][1] == self.board[1][2]:
+        elif self.board[1][2] != " " and self.board[1][0] == self.board[1][1] == self.board[1][2]:
             print('row win ' + self.board[1][0])
             self.win_condition = self.board[1][0]
             self.__repr__()
 
-        elif self.board[2][2] != None and self.board[2][0] == self.board[2][1] == self.board[2][2]:
+        elif self.board[2][2] != " " and self.board[2][0] == self.board[2][1] == self.board[2][2]:
             print('row win ' + self.board[2][0])
             self.win_condition = self.board[2][0]            
             self.__repr__()
 
             #Diagonal wins
-        elif self.board[2][2] != None and self.board[0][0] == self.board[1][1] == self.board[2][2]:
+        elif self.board[2][2] != " " and self.board[0][0] == self.board[1][1] == self.board[2][2]:
             print('top-left diagonal win ' + self.board[0][0])
             self.win_condition = self.board[0][0]
             self.__repr__()
 
-        elif self.board[0][2] != None and self.board[0][2] == self.board[1][1] == self.board[2][0]:
+        elif self.board[0][2] != " " and self.board[0][2] == self.board[1][1] == self.board[2][0]:
             print('top-right diagonal win ' + self.board[0][0])
             self.win_condition = self.board[2][0]
             self.__repr__()            
