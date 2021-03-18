@@ -1,3 +1,5 @@
+
+
 class Player:
     def __init__(self, name, token):
         self.name = name
@@ -6,7 +8,7 @@ class Player:
 class Game:
     # Working.
     def __init__(self):
-        self.board = [["X","O","X"],["X","O",None],["X","O","O"]]
+        self.board = [["X","O","X"],["O","X","X"],["X","O","O"]]
         self.wholeBoard = []
         self.fullBoard = False
         self.player1 = None
@@ -47,74 +49,51 @@ class Game:
 
     # index out of range
     def calc_winner(self):
-        x_count = 0
-        o_count = 0
-        for space in range(3):
-            if self.board[0][space] == 'X':   # X Horizontal Check Top Row
-                x_count += 1
-        if x_count == 3:
-            print("X Won!")
 
-        x_count = 0
-        o_count = 0
-        for space in range(3):
-            if self.board[1][space] == 'X':   # X Horizontal Check Second Row
-                x_count += 1
-        if x_count == 3:
-            print("X Won!")      
+            #Horizontal wins (columns)
+        if self.board[0][0] == self.board[1][0] == self.board[2][0]:
+            print('column win ' + self.board[0][0])
+            self.win_condition = self.board[0][0]
+            self.__repr__()
 
-        x_count = 0
-        o_count = 0
-        for space in range(3):
-            if self.board[2][space] == 'X':   # X Horizontal Check Third Row
-                x_count += 1
-        if x_count == 3:
-            print("X Won!")   
+        elif self.board[0][1] == self.board[1][1] == self.board[2][1]:
+            print('column win ' + self.board[0][1])
+            self.win_condition = self.board[0][1]
+            self.__repr__()
 
-#--------------------------------------------------------------------------------
+        elif self.board[0][2] == self.board[1][2] == self.board[2][2]:
+            print('column win ' + self.board[0][2])
+            self.win_condition = self.board[0][2]
+            self.__repr__()
 
-        for space in range(3):
-            if self.board[0][space] == 'O':   # O Horizontal Check Top Row
-                x_count += 1
-        if x_count == 3:
-            print("O Won!")
+            #Vertical wins (rows)
+        elif self.board[0][0] == self.board[0][1] == self.board[0][2]:
+            print('row win ' + self.board[0][0])
+            self.win_condition = self.board[0][0]
+            self.__repr__()
 
-        x_count = 0
-        o_count = 0
-        for space in range(3):
-            if self.board[1][space] == 'O':   # O Horizontal Check Second Row
-                x_count += 1
-        if x_count == 3:
-            print("O Won!")      
+        elif self.board[1][0] == self.board[1][1] == self.board[1][2]:
+            print('row win ' + self.board[1][0])
+            self.win_condition = self.board[1][0]
+            self.__repr__()
 
-        x_count = 0
-        o_count = 0
-        for space in range(3):
-            if self.board[2][space] == 'O':   # O Horizontal Check Third Row
-                x_count += 1
-        if x_count == 3:
-            print("O Won!")   
-            # print(self.board[0][space]) Horizontal
-            # print(self.board[space][0]) vertical
-            
-            # Loops through columns to check for vertical win.
-            # if any(x is None for x in self.wholeBoard):
+        elif self.board[2][0] == self.board[2][1] == self.board[2][2]:
+            print('row win ' + self.board[2][0])
+            self.win_condition = self.board[2][0]            
+            self.__repr__()
 
-            # if self.board[space] == 'X' and self.board[space+3] == 'X' and self.board[space+6] == 'X':
-            #     self.win_condition == True
+            #Diagonal wins
+        elif self.board[0][0] == self.board[1][1] == self.board[2][2]:
+            print('top-left diagonal win ' + self.board[0][0])
+            self.win_condition = self.board[0][0]
+            self.__repr__()
 
-            # # Loops though rows to check for horizontal win
-            # elif self.board[(space*3)] == 'X' and self.board[(space*3)+1] == 'X' and self.board[(space*3)+2] == 'X':
-            #     self.win_condition == True
+        elif self.board[0][2] == self.board[1][1] == self.board[2][0]:
+            print('top-right diagonal win ' + self.board[0][0])
+            self.win_condition = self.board[2][0]
+            self.__repr__()            
 
-            # # Loops through and checks for either possible diagonal win
-            # elif self.board[0] == 'X' and self.board[4] == 'X' and self.board[8] == 'X':
-            #     self.win_condition == True
-
-            # elif self.board[2] == 'X' and self.board[4] == 'X' and self.board[6] == 'X':
-            #     self.win_condition == True
-            # Handle no winner condition and 'O' winner condition 
-    
+      
 
 p1 = Player("Dan", "X")
 p2 = Player("Ted", "O")
@@ -128,5 +107,6 @@ g1.player2 = p2
 
 # g1.__repr__()
 # g1.move(2,1,p1)
-# g1.__repr__()
+
 g1.calc_winner()
+g1.__repr__()
