@@ -6,7 +6,7 @@ class Player:
 class Game:
     # Working.
     def __init__(self):
-        self.board = [["X",'O',"O"],["X","O",None],["X","O","O"]]
+        self.board = [["X","O","X"],["X","O",None],["X","O","O"]]
         self.wholeBoard = []
         self.fullBoard = False
         self.player1 = None
@@ -47,16 +47,59 @@ class Game:
 
     # index out of range
     def calc_winner(self):
+        x_count = 0
+        o_count = 0
         for space in range(3):
+            if self.board[0][space] == 'X':   # X Horizontal Check Top Row
+                x_count += 1
+        if x_count == 3:
+            print("X Won!")
+
+        x_count = 0
+        o_count = 0
+        for space in range(3):
+            if self.board[1][space] == 'X':   # X Horizontal Check Second Row
+                x_count += 1
+        if x_count == 3:
+            print("X Won!")      
+
+        x_count = 0
+        o_count = 0
+        for space in range(3):
+            if self.board[2][space] == 'X':   # X Horizontal Check Third Row
+                x_count += 1
+        if x_count == 3:
+            print("X Won!")   
+
+#--------------------------------------------------------------------------------
+
+        for space in range(3):
+            if self.board[0][space] == 'O':   # O Horizontal Check Top Row
+                x_count += 1
+        if x_count == 3:
+            print("O Won!")
+
+        x_count = 0
+        o_count = 0
+        for space in range(3):
+            if self.board[1][space] == 'O':   # O Horizontal Check Second Row
+                x_count += 1
+        if x_count == 3:
+            print("O Won!")      
+
+        x_count = 0
+        o_count = 0
+        for space in range(3):
+            if self.board[2][space] == 'O':   # O Horizontal Check Third Row
+                x_count += 1
+        if x_count == 3:
+            print("O Won!")   
             # print(self.board[0][space]) Horizontal
             # print(self.board[space][0]) vertical
             
             # Loops through columns to check for vertical win.
             # if any(x is None for x in self.wholeBoard):
-            if any(space is 'O' for space in self.board[space][0]):
-                pass 
-            else:
-                print('X won the game!')
+
             # if self.board[space] == 'X' and self.board[space+3] == 'X' and self.board[space+6] == 'X':
             #     self.win_condition == True
 
