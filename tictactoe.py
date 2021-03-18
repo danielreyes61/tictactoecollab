@@ -4,9 +4,9 @@ class Player:
         self.token = token
 
 class Game:
-    # Working.
+    # Working
     def __init__(self):
-        self.board = [["X","O","X"],["O",None,"X"],["X","O","O"]]
+        self.board = [[None,None,None],[None,None,None],[None,None,None]]
         self.wholeBoard = []
         self.fullBoard = False
         self.player1 = None
@@ -15,7 +15,7 @@ class Game:
         self.is_full_condition = None
 
 
-    # Maybe Working.
+    # Maybe Working
     def is_full(self):
         self.wholeBoard = self.board[0] + self.board[1] + self.board[2]
         if any(x is None for x in self.wholeBoard):
@@ -23,7 +23,7 @@ class Game:
         else:
             self.is_full_condition = True
 
-    # Working.
+    # Working
     def is_game_over(self):
         if self.is_full_condition == True:
             print("No more spaces")
@@ -32,61 +32,61 @@ class Game:
         elif self.win_condition == True:
             print("Winner")
 
-    # Working.   
+    # Working
     def __repr__(self):
         print(f"{self.board[0]}\n{self.board[1]}\n{self.board[2]}")
    
-    #Working
+    # Working
     def move(self, x, y, player):
         self.x = x
         self.y = y
         self.player = player.token
         if self.board[y][x] == None:
             self.board[y][x] = player.token    
-        print(self.x, self.y, player.token)
 
-    # index out of range
+
+    # Working
     def calc_winner(self):
 
             #Horizontal wins (columns)
-        if self.board[0][0] == self.board[1][0] == self.board[2][0]:
+        if self.board[0][0] != None and self.board[0][0] == self.board[1][0] == self.board[2][0]:
             print('column win ' + self.board[0][0])
             self.win_condition = self.board[0][0]
             self.__repr__()
 
-        elif self.board[0][1] == self.board[1][1] == self.board[2][1]:
+        elif self.board[0][1] != None and self.board[0][1] == self.board[1][1] == self.board[2][1]:
             print('column win ' + self.board[0][1])
             self.win_condition = self.board[0][1]
             self.__repr__()
 
-        elif self.board[0][2] == self.board[1][2] == self.board[2][2]:
+        elif self.board[0][2] != None and self.board[0][2] == self.board[1][2] == self.board[2][2]:
             print('column win ' + self.board[0][2])
             self.win_condition = self.board[0][2]
             self.__repr__()
 
             #Vertical wins (rows)
-        elif self.board[0][0] == self.board[0][1] == self.board[0][2]:
+        elif self.board[0][2] != None and self.board[0][0] == self.board[0][1] == self.board[0][2]:
             print('row win ' + self.board[0][0])
             self.win_condition = self.board[0][0]
             self.__repr__()
 
-        elif self.board[1][0] == self.board[1][1] == self.board[1][2]:
+        elif self.board[1][2] != None and self.board[1][0] == self.board[1][1] == self.board[1][2]:
             print('row win ' + self.board[1][0])
             self.win_condition = self.board[1][0]
             self.__repr__()
 
-        elif self.board[2][0] == self.board[2][1] == self.board[2][2]:
+        elif self.board[2][2] != None and self.board[2][0] == self.board[2][1] == self.board[2][2]:
             print('row win ' + self.board[2][0])
             self.win_condition = self.board[2][0]            
             self.__repr__()
 
             #Diagonal wins
-        elif self.board[0][0] == self.board[1][1] == self.board[2][2]:
+        elif self.board[2][2] != None and self.board[0][0] == self.board[1][1] == self.board[2][2]:
             print('top-left diagonal win ' + self.board[0][0])
             self.win_condition = self.board[0][0]
             self.__repr__()
 
-        elif self.board[0][2] == self.board[1][1] == self.board[2][0]:
+        elif self.board[0][2] != None and self.board[0][2] == self.board[1][1] == self.board[2][0]:
             print('top-right diagonal win ' + self.board[0][0])
             self.win_condition = self.board[2][0]
             self.__repr__()            
