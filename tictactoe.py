@@ -1,5 +1,3 @@
-
-
 class Player:
     def __init__(self, name, token):
         self.name = name
@@ -8,7 +6,7 @@ class Player:
 class Game:
     # Working.
     def __init__(self):
-        self.board = [["X","O","X"],["O","X","X"],["X","O","O"]]
+        self.board = [["X","O","X"],["O",None,"X"],["X","O","O"]]
         self.wholeBoard = []
         self.fullBoard = False
         self.player1 = None
@@ -17,7 +15,7 @@ class Game:
         self.is_full_condition = None
 
 
-    # Working.
+    # Maybe Working.
     def is_full(self):
         self.wholeBoard = self.board[0] + self.board[1] + self.board[2]
         if any(x is None for x in self.wholeBoard):
@@ -29,7 +27,7 @@ class Game:
     def is_game_over(self):
         if self.is_full_condition == True:
             print("No more spaces")
-            #Game.calc_winner(self)
+
 
         elif self.win_condition == True:
             print("Winner")
@@ -106,7 +104,27 @@ g1.player2 = p2
 #print(p1.name + p1.token)
 
 # g1.__repr__()
-# g1.move(2,1,p1)
+player_input = ""
+choose_x_coord = ""
+choose_y_coord = ""
+while True:
+    if g1.is_game_over == True:
+        g1.calc_winner()
+        g1.__repr__()
+        break
+    g1.__repr__()
+    player_input = input("Choose player, please enter p1 or p2: ")
+    if player_input == "p1":
+        player_input = p1
+    if player_input == "p2":
+        player_input = p2
+    choose_x_coord = int(input("Please enter a X coordinate: "))
+    choose_y_coord = int(input("Please enter a Y coordinate: "))
+    g1.move(choose_x_coord,choose_y_coord,player_input)
+    g1.is_game_over()
+    g1.calc_winner()
+    if g1.win_condition != None:
+        break
 
-g1.calc_winner()
-g1.__repr__()
+
+
