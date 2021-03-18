@@ -43,7 +43,7 @@ class Game:
         self.player = player.token
         if self.board[y][x] == None:
             self.board[y][x] = player.token    
-        print(self.x, self.y, player.token)
+        
 
     # index out of range
     def calc_winner(self):
