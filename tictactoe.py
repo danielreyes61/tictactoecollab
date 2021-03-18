@@ -43,10 +43,7 @@ class Game:
         self.player = player.token
         if self.board[y][x] == None:
             self.board[y][x] = player.token    
-<<<<<<< HEAD
-=======
         
->>>>>>> 3fc61d1229eea1371aebf33321c0e8dd2992fadb
 
 
     # Working
@@ -102,15 +99,10 @@ p2 = Player("Ted", "O")
 g1 = Game()
 g1.player1 = p1
 g1.player2 = p2
-#g1.is_full()
-#print(g1.is_full_condition)
-#g1.is_game_over()
-#print(p1.name + p1.token)
-
-# g1.__repr__()
 player_input = ""
 choose_x_coord = ""
 choose_y_coord = ""
+
 while True:
     if g1.is_game_over == True:
         g1.calc_winner()
