@@ -60,44 +60,44 @@ class Game:
 
             #Horizontal wins (columns)
         if self.board[0][0] != " " and self.board[0][0] == self.board[1][0] == self.board[2][0]:
-            print('column win ' + self.board[0][0])
+            print('\ncolumn win ' + self.board[0][0])
             self.win_condition = self.board[0][0]
             self.__repr__()
 
         elif self.board[0][1] != " " and self.board[0][1] == self.board[1][1] == self.board[2][1]:
-            print('column win ' + self.board[0][1])
+            print('\ncolumn win ' + self.board[0][1])
             self.win_condition = self.board[0][1]
             self.__repr__()
 
         elif self.board[0][2] != " " and self.board[0][2] == self.board[1][2] == self.board[2][2]:
-            print('column win ' + self.board[0][2])
+            print('\ncolumn win ' + self.board[0][2])
             self.win_condition = self.board[0][2]
             self.__repr__()
 
             #Vertical wins (rows)
         elif self.board[0][2] != " " and self.board[0][0] == self.board[0][1] == self.board[0][2]:
-            print('row win ' + self.board[0][0])
+            print('\nrow win ' + self.board[0][0])
             self.win_condition = self.board[0][0]
             self.__repr__()
 
         elif self.board[1][2] != " " and self.board[1][0] == self.board[1][1] == self.board[1][2]:
-            print('row win ' + self.board[1][0])
+            print('\nrow win ' + self.board[1][0])
             self.win_condition = self.board[1][0]
             self.__repr__()
 
         elif self.board[2][2] != " " and self.board[2][0] == self.board[2][1] == self.board[2][2]:
-            print('row win ' + self.board[2][0])
+            print('\nrow win ' + self.board[2][0])
             self.win_condition = self.board[2][0]            
             self.__repr__()
 
             #Diagonal wins
         elif self.board[2][2] != " " and self.board[0][0] == self.board[1][1] == self.board[2][2]:
-            print('top-left diagonal win ' + self.board[0][0])
+            print('\ntop-left diagonal win ' + self.board[0][0])
             self.win_condition = self.board[0][0]
             self.__repr__()
 
         elif self.board[0][2] != " " and self.board[0][2] == self.board[1][1] == self.board[2][0]:
-            print('top-right diagonal win ' + self.board[0][0])
+            print('\ntop-right diagonal win ' + self.board[0][0])
             self.win_condition = self.board[2][0]
             self.__repr__()            
 
@@ -118,12 +118,12 @@ while True:
         g1.__repr__()
         break
     g1.__repr__()
-    player_input = input("Choose player, please enter p1 or p2: ")
+    player_input = input("\nChoose player, please enter p1 or p2: ")
     if player_input == "p1":
         player_input = p1
     if player_input == "p2":
         player_input = p2
-    choose_x_coord = int(input("Please enter a X coordinate: "))
+    choose_x_coord = int(input("\nPlease enter a X coordinate: "))
     choose_y_coord = int(input("Please enter a Y coordinate: "))
     g1.move(choose_x_coord,choose_y_coord,player_input)
     g1.is_game_over()
