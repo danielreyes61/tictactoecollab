@@ -43,6 +43,10 @@ class Game:
         self.player = player.token
         if self.board[y][x] == None:
             self.board[y][x] = player.token    
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 3fc61d1229eea1371aebf33321c0e8dd2992fadb
 
 
     # Working
